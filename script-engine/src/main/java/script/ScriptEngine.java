@@ -29,14 +29,17 @@ public class ScriptEngine {
 
     private String[] scriptJarFile;
 
-    public ScriptEngine(boolean dev, String[] scriptPath) {
+    private String packageName;
+
+    public ScriptEngine(boolean dev, String[] scriptPath, String packageName) {
         this.dev = dev;
         this.scriptJarFile = scriptPath;
+        this.packageName = packageName;
     }
 
     public void reload() throws IOException, ScannerClassException, InvocationTargetException, InstantiationException, IllegalAccessException {
         if (dev) {
-            loadClass(Script.class, "com.whk.script");
+            loadClass(Script.class, packageName);
         } else {
             loadOutJar(scriptJarFile, Script.class);
         }

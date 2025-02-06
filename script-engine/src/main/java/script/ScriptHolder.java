@@ -12,8 +12,8 @@ public enum ScriptHolder {
 
     private ScriptEngine scriptEngine;
 
-    public void init(boolean dev, String[] scriptPath) throws IOException, ScannerClassException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        scriptEngine = new ScriptEngine(dev, scriptPath);
+    public void init(boolean dev, String[] scriptPath, String packageName) throws IOException, ScannerClassException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        scriptEngine = new ScriptEngine(dev, scriptPath, packageName);
         scriptEngine.reload();
     }
 
